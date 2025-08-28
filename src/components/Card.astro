@@ -1,0 +1,39 @@
+---
+export interface Props {
+	headerText: string;
+	headerLink?: string;
+	title: string;
+	description: string;
+}
+
+const { headerText, headerLink, title, description } = Astro.props;
+---
+
+<div class="relative flex flex-col bg-white shadow-sm rounded-lg">
+	<div class="mx-3 mb-0 pt-3 pb-2 px-1">
+		{
+			headerLink ? (
+				<a
+					href={headerLink}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-sm  underline hover:text-primary"
+				>
+					{headerText}
+				</a>
+			) : (
+				<span class="text-sm text-slate-600 hover:text-primary  font-medium">
+					{headerText}
+				</span>
+			)
+		}
+	</div>
+	<div class="p-4">
+		<h5 class="mb-2 text-slate-800 text-xl font-semibold">
+			{title}
+		</h5>
+		<p class="text-slate-600 leading-normal font-light">
+			{description}
+		</p>
+	</div>
+</div>
