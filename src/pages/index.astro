@@ -6,17 +6,23 @@ import Footer from "../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { formatDate } from "../utils/Date.ts";
 const posts: CollectionEntry<"posts">[] = await getCollection("posts");
+
 export const prerender = true;
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title="Bienvenido">
-	<div class="min-h-screen">
-		<Welcome />
+	<div
+		id="background-main"
+		style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"
+	>
+	</div>
 
+	<main class="min-h-screen">
+		<Welcome />
 		<div class="max-w-4xl mx-auto px-16 py-6">
-			<main class="mt-12">
+			<div class="mt-12">
 				<header class="mb-12">
 					<div
 						class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"
@@ -89,7 +95,7 @@ export const prerender = true;
 					Disfruto mucho aprender nuevas tecnologias y desarrollar
 					soluciones web.
 					<span class="block">Vivo en neovim.</span>
-					actualmente desarrollando en
+					Actualmente desarrollando en
 					<a
 						href="https://fisioterapeuta-ep.vercel.app/"
 						target="_blank"
@@ -99,11 +105,15 @@ export const prerender = true;
 						Clinica Selena!
 					</a>
 				</p>
-			</main>
+			</div>
 
-			<section class="max-w-7xl mx-auto" id="projects">
+			<section
+				class="max-w-7xl mx-auto mt-12 mb-6"
+				id="projects"
+				aria-label="Personal projects that i was part of"
+			>
 				<h2
-					class="text-lg md:text-2xl font-semibold text-gray-700 mb-6"
+					class="text-xl md:text-2xl font-semibold text-gray-700 mb-6"
 				>
 					Proyectos
 				</h2>
@@ -143,7 +153,7 @@ export const prerender = true;
 				class="max-w-7xl mx-auto mt-12 mb-6"
 			>
 				<h3
-					class="text-lg md:text-2xl font-semibold text-gray-700 mb-6"
+					class="text-xl md:text-2xl font-semibold text-gray-700 mb-6"
 				>
 					Blog
 				</h3>
@@ -161,8 +171,8 @@ export const prerender = true;
 											<a
 												href={`/blog/${slug}`}
 												class="hover:text-primary font-medium text-lg 
-								   underline underline-offset-4 decoration-neutral-300 
-								   hover:decoration-neutral-500 transition-colors duration-200"
+													 underline underline-offset-4 decoration-neutral-300 
+														hover:decoration-neutral-500 transition-colors duration-200"
 											>
 												{title}
 											</a>
@@ -219,5 +229,5 @@ export const prerender = true;
 			</section>
 			<Footer />
 		</div>
-	</div>
+	</main>
 </Layout>
