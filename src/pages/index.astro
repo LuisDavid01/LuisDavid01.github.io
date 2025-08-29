@@ -6,18 +6,18 @@ import Footer from "../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { formatDate } from "../utils/Date.ts";
 const posts: CollectionEntry<"posts">[] = await getCollection("posts");
-
 export const prerender = true;
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="Bienvenido">
-	<div
-		id="background-main"
+<Layout title="Bienvenido a mi portafolio">
+	<canvas
+		id="c"
 		style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"
 	>
-	</div>
+	</canvas>
 
 	<main class="min-h-screen">
 		<Welcome />
@@ -27,12 +27,16 @@ export const prerender = true;
 					<div
 						class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"
 					>
-						<h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-0">
+						<h1
+							class="myName text-3xl md:text-4xl font-bold mb-2 md:mb-0"
+						>
 							LuisDavid01
 						</h1>
 
 						<!-- Redes sociales -->
-						<div class="flex gap-3 text-muted-foreground">
+						<div
+							class="top-socials flex gap-3 text-muted-foreground"
+						>
 							<a
 								href="https://github.com/LuisDavid01"
 								target="_blank"
@@ -230,4 +234,10 @@ export const prerender = true;
 			<Footer />
 		</div>
 	</main>
+
+	<script>
+		import { animateText } from "../scripts/gsap";
+
+		animateText("myName", "chars");
+	</script>
 </Layout>
