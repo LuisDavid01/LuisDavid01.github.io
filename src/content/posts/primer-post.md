@@ -1,7 +1,7 @@
 ---
 title: Hola mundo
 date: 2025-08-27
-updatedAt: 2025-08-27
+updatedAt: 2025-09-04
 author: LuisDavid01
 ---
 Hola a todos soy Luis David. Es mi primer blog y estoy muy emocionado de ver como avanzara
@@ -15,7 +15,7 @@ Astro 5, tailwind, sueños y esperanzas.
 
 Lista de que hacer:
 - [] Hacer mas posts
-- [] Dark/Light mode
+- [x] Dark/Light mode
 - [] Internacionalizacion
 - [] Hacer proyectos influyentes
 

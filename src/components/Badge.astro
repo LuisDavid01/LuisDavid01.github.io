@@ -1,0 +1,9 @@
+---
+const { text, className = "" } = Astro.props;
+---
+
+<span
+	class=`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium  inset-ring ${className} `
+>
+	{text}
+</span>

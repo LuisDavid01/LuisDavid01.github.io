@@ -9,7 +9,7 @@ export interface Props {
 const { headerText, headerLink, title, description } = Astro.props;
 ---
 
-<div class="relative flex flex-col bg-white shadow-sm rounded-lg">
+<div class="relative flex flex-col border border-card rounded-lg">
 	<div class="mx-3 mb-0 pt-3 pb-2 px-1">
 		{
 			headerLink ? (
@@ -22,18 +22,19 @@ const { headerText, headerLink, title, description } = Astro.props;
 					{headerText}
 				</a>
 			) : (
-				<span class="text-sm text-slate-600 hover:text-primary  font-medium">
+				<span class="text-sm  hover:text-primary  font-medium">
 					{headerText}
 				</span>
 			)
 		}
 	</div>
 	<div class="p-4">
-		<h4 class="mb-2 text-slate-800 text-xl font-semibold">
+		<h4 class="mb-2 text-xl font-semibold">
 			{title}
 		</h4>
-		<p class="text-slate-600 leading-normal font-light">
+		<p class="leading-normal font-light">
 			{description}
 		</p>
+		<slot />
 	</div>
 </div>

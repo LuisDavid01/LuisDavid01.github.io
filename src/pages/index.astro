@@ -3,6 +3,7 @@ import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Footer from "../components/Footer.astro";
+import Badge from "../components/Badge.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { formatDate } from "../utils/Date.ts";
 const posts: CollectionEntry<"posts">[] = await getCollection("posts");
@@ -92,14 +93,13 @@ export const prerender = true;
 					</div>
 				</div>
 
-				<p class="leading-relaxed text-pretty prose">
-					Sup, soy Luis Miranda! tambien conocido como LuisDavid01.
-					Tengo 19 años y soy estudiante universitario de ingenieria
-					en sistemas. Me gusta escribir cosas y resolver problemas.
-					Disfruto mucho aprender nuevas tecnologias y desarrollar
-					soluciones web.
-					<span class="block">Vivo en neovim.</span>
-					Actualmente desarrollando en
+				<p class="leading-relaxed text-pretty prose-neutral">
+					Un gusto soy Luis Miranda! Tengo 19 años soy estudiante
+					universitario de ingenieria en sistemas. Me gusta escribir
+					cosas y resolver problemas. Disfruto mucho aprender nuevas
+					tecnologias y desarrollar soluciones web, vivo en <span
+						class="text-green-400">Neovim</span
+					>. Actualmente desarrollando en
 					<a
 						href="https://fisioterapeuta-ep.vercel.app/"
 						target="_blank"
@@ -116,9 +116,7 @@ export const prerender = true;
 				id="projects"
 				aria-label="Personal projects that i was part of"
 			>
-				<h2
-					class="text-xl md:text-2xl font-semibold text-gray-700 mb-6"
-				>
+				<h2 class="text-xl md:text-2xl font-semibold mb-6">
 					Proyectos
 				</h2>
 
@@ -129,26 +127,67 @@ export const prerender = true;
 						headerText="luisdavid01.me"
 						title="Portafolio web"
 						description="Hace su trabajo"
-					/>
+					>
+						<Badge
+							className="text-orange-400 bg-orange-400/10 inset-ring-orange-400/20 my-3"
+							text="Astro"
+						/>
+
+						<Badge
+							className="text-blue-400 bg-blue-400/10 inset-ring-blue-400/20 my-3"
+							text="TypeScript"
+						/>
+					</Card>
 
 					<Card
 						headerText="Fisioreapia Selena"
 						headerLink="https://fisioterapeuta-ep.vercel.app/"
 						title="Aplicacion web fullstack"
 						description="Planea tus citas, manten un seguimiento de tu progreso."
-					/>
+					>
+						<Badge
+							className="text-purple-400 bg-purple-400/10 inset-ring-purple-400/20 my-3"
+							text="NextJs"
+						/>
+
+						<Badge
+							className="text-blue-400 bg-blue-400/10 inset-ring-blue-400/20 my-3"
+							text="TypeScript"
+						/>
+
+						<Badge
+							className="text-blue-400 bg-blue-400/10 inset-ring-blue-400/20 my-3"
+							text="Go"
+						/>
+					</Card>
 					<Card
 						headerText="L01 Drive"
 						headerLink="https://glittering-flan-b2b10b.netlify.app/"
 						title="Google drive clone"
 						description="Sube y comparte archivos de forma privada."
-					/>
+					>
+						<Badge
+							className="text-purple-400 bg-purple-400/10 inset-ring-purple-400/20 my-3"
+							text="NextJs"
+						/>
+						<Badge
+							className="text-blue-400 bg-blue-400/10 inset-ring-blue-400/20 my-3"
+							text="TypeScript"
+						/>
+					</Card>
+
 					<Card
 						headerText="JSON-Grabber"
 						headerLink="https://github.com/LuisDavid01/json-grabber"
 						title="Rust CLI tool"
 						description="Te ayuda a recordar scripts, make commands, lo que sea desde tu terminal."
-					/>
+					>
+						<Badge
+							className="text-rose-400 bg-rose-400/10 inset-ring-rose-400/20 my-3"
+							text="Rust"
+						/>
+					</Card>
+
 					<Card
 						headerText="Proximamente..."
 						title="Mas proyectos"
@@ -162,11 +201,7 @@ export const prerender = true;
 				aria-label="Blog posts"
 				class="max-w-7xl mx-auto mt-12 mb-6"
 			>
-				<h3
-					class="text-xl md:text-2xl font-semibold text-gray-700 mb-6"
-				>
-					Blog
-				</h3>
+				<h3 class="text-xl md:text-2xl font-semibold mb-6">Blog</h3>
 				<div>
 					<ul class="space-y-6">
 						{
@@ -186,8 +221,9 @@ export const prerender = true;
 											>
 												{title}
 											</a>
-											<div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-sm text-neutral-500">
-												<span class="flex items-center gap-1">
+
+											<div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-sm">
+												<span class="flex items-center gap-1 text-muted-foreground">
 													<svg
 														xmlns="http://www.w3.org/2000/svg"
 														width="24"
@@ -198,36 +234,13 @@ export const prerender = true;
 															fill="currentColor"
 															d="M15 2h2v2h4v18H3V4h4V2h2v2h6zM9 6H5v2h14V6zm-4 4v10h14V10zm2 2h8v2H7zm4 6v-2H7v2z"
 														/>
-													</svg>{" "}
-													{formatDate(date)}
-												</span>
-
-												{updatedAt &&
+													</svg>
+													{updatedAt &&
 													new Date(updatedAt) >
-														new Date(date) && (
-														<>
-															<span class="hidden sm:inline text-neutral-300">
-																•
-															</span>
-															<span class="flex items-center gap-1 text-neutral-400">
-																<svg
-																	xmlns="http://www.w3.org/2000/svg"
-																	width="24"
-																	height="24"
-																	viewBox="0 0 24 24"
-																>
-																	<path
-																		fill="currentColor"
-																		d="M15 2h2v2h4v18H3V4h4V2h2v2h6zM9 6H5v2h14V6zm-4 4v10h14V10zm2 2h8v2H7zm4 6v-2H7v2z"
-																	/>
-																</svg>{" "}
-																actualizado{" "}
-																{formatDate(
-																	updatedAt,
-																)}
-															</span>
-														</>
-													)}
+														new Date(date)
+														? `actualizado: ${formatDate(updatedAt)}`
+														: `creado: ${formatDate(date)}`}
+												</span>
 											</div>
 										</div>
 									</li>
