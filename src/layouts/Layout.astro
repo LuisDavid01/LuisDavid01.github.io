@@ -11,11 +11,15 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark hide-scroll">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="https://fav.farm/%F0%9F%99%80"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
@@ -25,7 +29,7 @@ const { title } = Astro.props;
 
 		<ClientRouter />
 	</head>
-	<body>
+	<body class="hide-scroll">
 		<slot />
 	</body>
 </html>

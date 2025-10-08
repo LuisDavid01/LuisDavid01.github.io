@@ -14,12 +14,6 @@ export const prerender = true;
 ---
 
 <Layout title="Bienvenido a mi portafolio">
-	<canvas
-		id="c"
-		style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"
-	>
-	</canvas>
-
 	<main class="min-h-screen">
 		<Welcome />
 		<div class="max-w-4xl mx-auto px-16 py-6">
@@ -93,13 +87,14 @@ export const prerender = true;
 					</div>
 				</div>
 
-				<p class="leading-relaxed text-pretty prose-neutral">
-					Un gusto soy Luis Miranda! Tengo 19 años soy estudiante
-					universitario de ingenieria en sistemas. Me gusta escribir
-					cosas y resolver problemas. Disfruto mucho aprender nuevas
-					tecnologias y desarrollar soluciones web, vivo en <span
+				<p class="lg:text-lg leading-relaxed text-pretty prose-neutral">
+					¡Hola! Soy Luis Miranda, <span class="shine-text">
+						futuro
+					</span> ingeniero en sistemas. Tengo 20 años, me gusta escribir
+					cosas y resolver problemas. Disfruto mucho aprender nuevas tecnologias
+					y desarrollar soluciones web ( y si vivo en <span
 						class="text-green-400">Neovim</span
-					>. Actualmente desarrollando en
+					> ). Actualmente desarrollando en
 					<a
 						href="https://fisioterapeuta-ep.vercel.app/"
 						target="_blank"
@@ -125,7 +120,6 @@ export const prerender = true;
 				>
 					<Card
 						headerText="luisdavid01.me"
-						title="Portafolio web"
 						description="Hace su trabajo"
 					>
 						<Badge
@@ -142,7 +136,6 @@ export const prerender = true;
 					<Card
 						headerText="Fisioreapia Selena"
 						headerLink="https://fisioterapeuta-ep.vercel.app/"
-						title="Aplicacion web fullstack"
 						description="Planea tus citas, manten un seguimiento de tu progreso."
 					>
 						<Badge
@@ -163,7 +156,6 @@ export const prerender = true;
 					<Card
 						headerText="L01 Drive"
 						headerLink="https://glittering-flan-b2b10b.netlify.app/"
-						title="Google drive clone"
 						description="Sube y comparte archivos de forma privada."
 					>
 						<Badge
@@ -179,7 +171,6 @@ export const prerender = true;
 					<Card
 						headerText="JSON-Grabber"
 						headerLink="https://github.com/LuisDavid01/json-grabber"
-						title="Rust CLI tool"
 						description="Te ayuda a recordar scripts, make commands, lo que sea desde tu terminal."
 					>
 						<Badge
@@ -190,7 +181,6 @@ export const prerender = true;
 
 					<Card
 						headerText="Proximamente..."
-						title="Mas proyectos"
 						description="Mantente atento!"
 					/>
 				</div>
@@ -212,11 +202,10 @@ export const prerender = true;
 								return (
 									<li class="group border-b border-neutral-200 pb-4 last:border-b-0">
 										<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-											{/* Título del post */}
 											<a
 												href={`/blog/${slug}`}
 												class="hover:text-primary font-medium text-lg 
-													 underline underline-offset-4 decoration-neutral-300 
+													  decoration-neutral-300 
 														hover:decoration-neutral-500 transition-colors duration-200"
 											>
 												{title}

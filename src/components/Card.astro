@@ -2,11 +2,10 @@
 export interface Props {
 	headerText: string;
 	headerLink?: string;
-	title: string;
 	description: string;
 }
 
-const { headerText, headerLink, title, description } = Astro.props;
+const { headerText, headerLink, description } = Astro.props;
 ---
 
 <div class="relative flex flex-col border border-card rounded-lg">
@@ -17,21 +16,18 @@ const { headerText, headerLink, title, description } = Astro.props;
 					href={headerLink}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-sm  underline hover:text-primary"
+					class="text-sm lg:text-lg  underline hover:text-primary"
 				>
 					{headerText}
 				</a>
 			) : (
-				<span class="text-sm  hover:text-primary  font-medium">
+				<span class="text-sm lg:text-lg  hover:text-primary  font-medium">
 					{headerText}
 				</span>
 			)
 		}
 	</div>
 	<div class="p-4">
-		<h4 class="mb-2 text-xl font-semibold">
-			{title}
-		</h4>
 		<p class="leading-normal font-light">
 			{description}
 		</p>

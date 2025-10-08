@@ -121,3 +121,41 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+
+.hide-scroll {
+	-ms-overflow-style: none;
+	/* Internet Explorer 10+ */
+	scrollbar-width: none;
+	/* Firefox, Safari 18.2+, Chromium 121+ */
+}
+
+.hide-scroll::-webkit-scrollbar {
+	display: none;
+	/* Older Safari and Chromium */
+}
+
+
+.shine-text {
+	background: linear-gradient(to right,
+			#5cf0e4 20%,
+			#00affa 30%,
+			#a035bf 70%,
+			#764ada 80%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+	background-size: 500% auto;
+	animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	100% {
+		background-position: 100% 50%;
+	}
+}
