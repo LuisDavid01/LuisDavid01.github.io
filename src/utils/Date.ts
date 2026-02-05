@@ -1,8 +1,9 @@
 // Formatear fechas
-export const formatDate = (dateObj: Date) => {
+
+export const formatDate = (dateObj: Date, locale: string) => {
 	return new Date(
 		dateObj,
-	).toLocaleDateString("es-ES", {
+	).toLocaleDateString(locale, {
 		year: "numeric",
 		month: "long",
 		day: "numeric",

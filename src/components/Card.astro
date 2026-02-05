@@ -2,35 +2,49 @@
 export interface Props {
 	headerText: string;
 	headerLink?: string;
-	description: string;
+	imageLink?: string;
 }
 
-const { headerText, headerLink, description } = Astro.props;
+const { headerText, headerLink, imageLink } = Astro.props;
 ---
 
-<div class="relative flex flex-col border border-card rounded-lg">
-	<div class="mx-3 mb-0 pt-3 pb-2 px-1">
-		{
-			headerLink ? (
-				<a
-					href={headerLink}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-sm lg:text-lg  underline hover:text-primary"
-				>
-					{headerText}
-				</a>
-			) : (
-				<span class="text-sm lg:text-lg  hover:text-primary  font-medium">
-					{headerText}
-				</span>
-			)
-		}
+<div class="flex flex-col self-start rounded-lg border border-card">
+
+	<!-- Header -->
+	<div class="px-4 pt-4">
+		{headerLink ? (
+			<a
+				href={headerLink}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-sm lg:text-lg font-semibold underline-offset-4 hover:underline hover:text-primary"
+			>
+				{headerText}
+			</a>
+		) : (
+			<h3 class="text-sm lg:text-lg font-semibold">
+				{headerText}
+			</h3>
+		)}
 	</div>
-	<div class="p-4">
-		<p class="leading-normal font-light">
-			{description}
-		</p>
+
+	<!-- Imagen -->
+	{imageLink && (
+		<div class="mt-3 px-4">
+			<div class="relative w-full aspect-[16/9] overflow-hidden rounded-md  flex items-center justify-center">
+				<img
+					src={imageLink}
+					alt="Imagen del proyecto"
+					class="max-h-full max-w-full object-contain"
+					loading="lazy"
+				/>
+			</div>
+		</div>
+	)}
+
+	<!-- Contenido -->
+	<div class="flex-1 p-4 text-sm text-muted-foreground">
 		<slot />
 	</div>
 </div>
+
