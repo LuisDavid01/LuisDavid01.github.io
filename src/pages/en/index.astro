@@ -285,8 +285,10 @@ const translate = useTranslations(currentLang as keyof typeof lenguageList);
 
 		<script>
 			import { animateText } from "@/scripts/gsap";
+			document.fonts.ready.then(() => {
+				animateText("myName", "chars");
+			});
 
-			animateText("myName", "chars");
 			document.addEventListener("astro:page-load", () => {
 				const emailbtn = document.getElementById("email-me");
 				const toast = document.getElementById("toast");

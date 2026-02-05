@@ -15,7 +15,7 @@ export const labels = {
 		"hero.location": "Alajuela, Costa Rica",
 		"hero.uni": "Universidad Fidélitas, Ingeniería en Sistemas",
 		"hero.desc":
-			`Soy estudiante de ingeniería en computación con interés en AI/ML. Me combine la experiencia en ingeniería con la de AI para construir plataformas y sistemas que las impulsan. ¿Te interesa?`,
+			`Soy estudiante de ingeniería en computación con interés en AI/ML. Combine mi experiencia en ingeniería con la AI para construir plataformas y los sistemas que las impulsan. ¿Tienes alguna idea en mente?`,
 		"hero.toastemail": "copiado al portapapeles!",
 
 		"proj.spiderq.title": "SpiderQ",
@@ -40,7 +40,7 @@ export const labels = {
 
 		"proj.loan-ml-model.title": "Modelo de ML para Predicción de Préstamos",
 		"proj.loan-ml-model.desc":
-			"Modelo de aprendizaje automático entrenado con datos financieros abiertos reales para predecir la probabilidad de aprobación de un préstamo. Los datos fueron limpiados, se seleccionaron características relevantes y se optimizaron los hiperparámetros mediante GridSearch. Desarrollado con Python, scikit-learn y pandas.",
+			"Modelo de machine learning entrenado con datos financieros de codigo abierto con datos reales para predecir la probabilidad de aprobación de un préstamo. Los datos fueron limpiados, se seleccionaron características relevantes y se optimizaron los hiperparámetros mediante GridSearch. Desarrollado con Python, scikit-learn y pandas.",
 
 		"proj.prox.title": "Próximamente...",
 		"proj.prox.desc":
