@@ -1,7 +1,6 @@
 ---
 title: Hola mundo
-date: 2025-08-27
-updatedAt: 2025-09-04
+date: 2025-09-04
 author: LuisDavid01
 ---
 Hola a todos soy Luis David. Es mi primer blog y estoy muy emocionado de ver como avanzara
