@@ -62,13 +62,21 @@ const translate = useTranslations(currentLang as keyof typeof lenguageList);
 		{translate("menu.blog")}
 	</a>
 
-	<div class="relative" id="languageSelector">
-		<!-- Botón principal -->
+	<div class="md:hidden">
+		<a
+			href={currentLang === "es" ? "/en" : "/es"}
+			class="flex items-center justify-center"
+			title={currentLang === "es" ? "Cambiar a Español" : "Switch to English" }
+		>
+			<span class="text-xl">{currentLang === "es" ? "🇺🇸" : "🇪🇸"}</span>
+		</a>
+	</div>
+
+	<div class="hidden md:block relative" id="languageSelector">
 		<button
 			id="languageBtn"
 			class="group relative px-4 py-3 transition-all duration-200 flex items-center space-x-3 min-w-[140px]"
 		>
-			<!-- Icono de idioma -->
 			<div
 				class="w-5 h-5 text-gray-600 group-hover:text-amber-700 transition-colors"
 			>
@@ -80,12 +88,10 @@ const translate = useTranslations(currentLang as keyof typeof lenguageList);
 				</svg>
 			</div>
 
-			<!-- Texto del idioma actual -->
 			<span id="currentLanguage" class="text-gray-700 font-medium">
 				{currentLang}
 			</span>
 
-			<!-- Icono flecha -->
 			<div
 				class="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-all duration-200"
 				id="arrowIcon"
@@ -99,16 +105,15 @@ const translate = useTranslations(currentLang as keyof typeof lenguageList);
 			</div>
 		</button>
 
-		<!-- Dropdown menu -->
 		<div
 			id="languageDropdown"
 			class="absolute top-full -left-14 mt-2
 				   origin-top-right
-         min-w-[160px]
-         bg-neutral-900 border border-gray-200 rounded-sm shadow-lg
-         py-2 z-50
-         hidden opacity-0 -translate-y-2
-         transition-all duration-200"
+				   min-w-[160px]
+				   bg-neutral-900 border border-gray-200 rounded-sm shadow-lg
+				   py-2 z-50
+				   hidden opacity-0 -translate-y-2
+				   transition-all duration-200"
 		>
 			{
 				Object.entries(lenguageList).map(([key, label]) => (
@@ -144,84 +149,51 @@ const translate = useTranslations(currentLang as keyof typeof lenguageList);
 		z-index: -1;
 	}
 </style>
-<script>
-	interface LanguageSelector {
-		button: HTMLButtonElement;
-		dropdown: HTMLDivElement;
-		arrow: HTMLDivElement;
-		isOpen: boolean;
-	}
 
+<script>
 	const initLanguageSelector = (): void => {
-		const button = document.getElementById(
-			"languageBtn",
-		) as HTMLButtonElement;
-		const dropdown = document.getElementById(
-			"languageDropdown",
-		) as HTMLDivElement;
-		const arrow = document.getElementById("arrowIcon") as HTMLDivElement;
+		const button = document.getElementById("languageBtn");
+		const dropdown = document.getElementById("languageDropdown");
+		const arrow = document.getElementById("arrowIcon");
 
 		if (!button || !dropdown || !arrow) return;
 
-		const selector: LanguageSelector = {
-			button,
-			dropdown,
-			arrow,
-			isOpen: false,
-		};
+		let isOpen = false;
 
 		const openDropdown = (): void => {
-			selector.isOpen = true;
-			selector.dropdown.classList.remove("hidden");
-			// Trigger reflow
-			selector.dropdown.offsetHeight;
-			selector.dropdown.classList.remove("opacity-0", "-translate-y-2");
-			selector.dropdown.classList.add("opacity-100", "translate-y-0");
-			selector.arrow.style.transform = "rotate(180deg)";
+			isOpen = true;
+			dropdown.classList.remove("hidden");
+			dropdown.offsetHeight;
+			dropdown.classList.remove("opacity-0", "-translate-y-2");
+			dropdown.classList.add("opacity-100", "translate-y-0");
+			arrow.style.transform = "rotate(180deg)";
 		};
 
 		const closeDropdown = (): void => {
-			if (!selector.isOpen) return;
-
-			selector.isOpen = false;
-			selector.dropdown.classList.remove("opacity-100", "translate-y-0");
-			selector.dropdown.classList.add("opacity-0", "-translate-y-2");
-			selector.arrow.style.transform = "rotate(0deg)";
-
-			setTimeout(() => {
-				selector.dropdown.classList.add("hidden");
-			}, 200);
+			if (!isOpen) return;
+			isOpen = false;
+			dropdown.classList.remove("opacity-100", "translate-y-0");
+			dropdown.classList.add("opacity-0", "-translate-y-2");
+			arrow.style.transform = "rotate(0deg)";
+			setTimeout(() => dropdown.classList.add("hidden"), 200);
 		};
 
-		// Event listeners
-		selector.button.addEventListener("click", (e: Event) => {
+		button.addEventListener("click", (e) => {
 			e.stopPropagation();
-			selector.isOpen ? closeDropdown() : openDropdown();
+			isOpen ? closeDropdown() : openDropdown();
 		});
 
-		document.addEventListener("click", (e: Event) => {
-			if (
-				!selector.button.contains(e.target as Node) &&
-				!selector.dropdown.contains(e.target as Node)
-			) {
+		document.addEventListener("click", (e) => {
+			if (!button.contains(e.target as Node) && !dropdown.contains(e.target as Node)) {
 				closeDropdown();
 			}
 		});
 
-		document.addEventListener("keydown", (e: KeyboardEvent) => {
-			if (e.key === "Escape" && selector.isOpen) {
-				closeDropdown();
-			}
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape" && isOpen) closeDropdown();
 		});
 	};
 
-	// Initialize when DOM is ready
-	document.addEventListener("DOMContentLoaded", initLanguageSelector);
-
-	document.addEventListener("astro:after-swap", () => {
-		initLanguageSelector();
-	});
-	document.addEventListener("astro:page-load", () => {
-		initLanguageSelector();
-	});
+	document.addEventListener("astro:page-load", initLanguageSelector);
 </script>
+
