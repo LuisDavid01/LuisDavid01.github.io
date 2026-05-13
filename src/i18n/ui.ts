@@ -11,12 +11,21 @@ export const labels = {
 		"menu.blog": "blog",
 		"menu.projects": "proyectos",
 
-		"hero.me": "Ingeniero en sistemas",
+		"hero.me": "Aspirante a SRE",
 		"hero.location": "Alajuela, Costa Rica",
 		"hero.uni": "Universidad Fidélitas, Ingeniería en Sistemas",
 		"hero.desc":
-			`Soy estudiante de ingeniería en computación con interés en AI/ML. Combine mi experiencia en ingeniería con la AI para construir plataformas y los sistemas que las impulsan. ¿Tienes alguna idea en mente?`,
+			`Soy ingeniero de ciencias de la computación 
+		aspirante a SRE. Combine mi experiencia en ingeniería 
+		para diseñar aplicaciones y los sistemas que las impulsan.
+			¿Tienes alguna idea en mente?`,
 		"hero.toastemail": "copiado al portapapeles!",
+
+		"proj.transparencia.title": "TransparenciaCR",
+		"proj.transparencia.desc":
+			`Aplicacion web para la IBM dev day hackathon sobre recoleccion de informacion publica enfocada
+		en transparencia y consultas de proyectos publicos por medio de un agente de inteligencia artificial.`,
+
 
 		"proj.spiderq.title": "SpiderQ",
 		"proj.spiderq.desc":
@@ -55,12 +64,19 @@ export const labels = {
 		"menu.blog": "blog",
 		"menu.projects": "projects",
 
-		"hero.me": "Systems Engineer",
+		"hero.me": "Aspiring SRE",
 		"hero.location": "Alajuela, Costa Rica",
 		"hero.uni": "Fidelitas University, Systems Engineering",
 		"hero.desc":
-			`Im a undergraduate computer science student with interest in AI/ML. I combine engineering experience with AI to build cool platforms and the systems that power them. Interested?`,
+			`Im a computer science bachelor with aspirations to be a SRE.
+			I combine engineering experience to design and build cool applications and the systems that power them. Interested? send me an email!`,
 		"hero.toastemail": "copied to clipboard!",
+
+		
+		"proj.transparencia.title": "TransparenciaCR",
+		"proj.transparencia.desc":
+			`Web application for IBM dev day hackathon focused on collecting public information
+			focused on transparency and public project inquiries, status and tax money spend through an AI agent for the general public.`,
 
 		"proj.spiderq.title": "SpiderQ",
 		"proj.spiderq.desc":

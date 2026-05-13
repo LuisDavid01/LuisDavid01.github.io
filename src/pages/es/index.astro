@@ -121,7 +121,25 @@ const translate = useTranslations(currentLang as keyof typeof lenguageList);
 		>
 			<div
 				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start"
-			>
+				>
+
+								<Card
+					headerText={translate("proj.transparencia.title")}
+					headerLink="https://ibmhackathon-production.up.railway.app/"
+					imageLink="/ibmhackathonp.webp"
+				>
+					<p>{translate("proj.transparencia.desc")}</p>
+
+					<Badge
+						className="text-green-400 bg-amber-400/10 inset-ring-green-400/20 my-3"
+						text="Tanstack start"
+					/>
+
+					<Badge
+						className="text-blue-400 bg-blue-400/10 inset-ring-blue-400/20 my-3"
+						text="TypeScript"
+					/>
+				</Card>
 				<Card
 					headerText={translate("proj.spiderq.title")}
 					headerLink="https://spiderq.tech"
@@ -142,7 +160,6 @@ const translate = useTranslations(currentLang as keyof typeof lenguageList);
 
 				<Card
 					headerText={translate("proj.fisio.title")}
-					headerLink="https://fisioterapeuta-ep.vercel.app/"
 					imageLink="/selena-ss.webp"
 				>
 					<p>
@@ -267,7 +284,7 @@ const translate = useTranslations(currentLang as keyof typeof lenguageList);
 													new Date(updatedAt) >
 														new Date(date)
 														? `${translate("blog.updatedat")} ${formatDate(updatedAt, currentLang)}`
-														: `${formatDate(date)}`}
+														: `${formatDate(date, currentLang)}`}
 												</span>
 											</div>
 										</div>
